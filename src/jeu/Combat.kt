@@ -11,16 +11,34 @@ class Combat(
     // Méthode pour simuler un tour de combat du joueur
     fun tourDeJoueur() {
         println("\u001B[34m ---Tour de ${this.jeu.joueur.nom} (pv: ${this.jeu.joueur.pointDeVie}) ---")
-       //TODO Mission 1.2
+        println("Pour attaquer taper 1 sinon taper 2")
+        //TODO Mission 1.2
+        var res = readln().toInt()
+        if (res == 1) {
+
+
         this.jeu.joueur.attaque(monstre)
-        println("\u001b[0m")
+
     }
+    else
+    {
+        println("Je passe mon tour ")
+    }
+        println("\u001b[0m")
+}
 
     // Méthode pour simuler un tour de combat du monstre
     fun tourDeMonstre() {
         println("\u001B[31m---Tour de ${monstre.nom} (pv: ${monstre.pointDeVie}) ---")
         //TODO Mission 1.3
-        this.monstre.attaque(this.jeu.joueur)
+        if ((1.. 100).random() <= 70) {
+            this.monstre.attaque(this.jeu.joueur)
+
+        }
+        else {
+            println("Le monstre passe sont tour")
+
+        }
         println("\u001b[0m")
     }
 
