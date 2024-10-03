@@ -1,6 +1,25 @@
 package jeu
 
+/**
+ * Classe représentant un tirage de dés.
+ * Cette classe permet de lancer plusieurs dés et d'obtenir un résultat total.
+ *
+ * @property nbDe Le nombre de dés à lancer.
+ * @property maxDe Le nombre de faces sur chaque dé (valeur maximale possible).
+ */
+
 class TirageDes(val nbDe:Int, val maxDe:Int) {
+
+    /**
+     * Lance les dés en fonction du nombre de dés et du nombre de faces, puis retourne le résultat total.
+     *
+     * Par exemple, pour un lancer de "3d8" (3 dés à 8 faces) :
+     * - Lance le premier dé, ajoute son résultat.
+     * - Lance le deuxième dé, ajoute son résultat au précédent.
+     * - Lance le troisième dé, ajoute son résultat au total.
+     *
+     * @return Le total des dés lancés.
+     */
 
     fun lance():Int{
         // Si on lance 3d8

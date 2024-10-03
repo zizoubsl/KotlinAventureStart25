@@ -7,6 +7,10 @@ class Potion(val soin: Int, nom: String, description: String): Item(nom,descript
 
 
    override fun utiliser(cible: Personnage){
+       cible.pointDeVie += soin
+       if (cible.pointDeVie>cible.pointDeVieMax){
+           cible.pointDeVie= cible.pointDeVieMax
+       }
 
     }
 }

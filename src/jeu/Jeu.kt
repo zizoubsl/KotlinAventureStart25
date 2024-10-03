@@ -2,6 +2,14 @@ package jeu
 
 import personnage.Personnage
 
+/**
+ * Classe représentant le jeu. Elle gère les combats entre le joueur et une liste de monstres.
+ *
+ * @property joueur Le personnage du joueur, créé lors de l'initialisation du jeu.
+ * @property combats La liste des combats qui seront exécutés.
+ * @property score Le score du joueur, calculé en fonction des tours de combat.
+ */
+
 
 
 class Jeu(monstres: List<Personnage>) {
@@ -24,6 +32,10 @@ class Jeu(monstres: List<Personnage>) {
         }
     }
 
+    /**
+     * Lance tous les combats dans la liste et met à jour le score en fonction du nombre de tours nécessaires pour chaque combat.
+     */
+
     fun lancerCombat() {
         for (unCombat in this.combats) {
             unCombat.executerCombat()
@@ -34,6 +46,14 @@ class Jeu(monstres: List<Personnage>) {
         println("Score final du joueur: $score")
     }
 
+    /**
+     * Calcule le score du joueur en fonction du nombre de tours nécessaires pour finir un combat.
+     * Moins il y a de tours, plus le score est élevé.
+     *
+     * @param tours Le nombre de tours pris pour terminer un combat.
+     * @return Le score calculé pour ce combat.
+     */
+
     private fun calculerScore(tours: Int): Int {
         // Par exemple, vous pouvez attribuer plus de points pour moins de tours
         return 500 - tours * 10
@@ -42,6 +62,12 @@ class Jeu(monstres: List<Personnage>) {
     /**
      *  Méthode pour créer le personnage du joueur en demandant les informations à l'utilisateur
      *
+     */
+    /**
+     * Crée le personnage du joueur en demandant des informations comme le nom, l'attaque, la défense, l'endurance et la vitesse.
+     * L'utilisateur doit entrer des valeurs jusqu'à ce que le total des statistiques ne dépasse pas 40.
+     *
+     * @return Le personnage créé par le joueur.
      */
     fun creerPersonnage(): Personnage {
         println("Création votre personnage:")
